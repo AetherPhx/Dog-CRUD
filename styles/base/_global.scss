@@ -1,0 +1,28 @@
+@use "./../theme/" as theme;
+
+html {
+	font-family: theme.$fm;
+	font-size: theme.$fs-md;
+	font-weight: theme.$fw-regular;
+}
+
+body {
+	background-color: theme.$color-main;
+	color: theme.$color-sec;
+}
+
+h1,
+h2 {
+	font-size: theme.$fs-lg;
+	font-weight: theme.$fw-bold;
+}
+
+h1 {
+	font-size: theme.$fs-xl;
+}
+
+p {
+	font-size: theme.$fs-md;
+	font-weight: theme.$fw-regular;
+	color: theme.$color-sec;
+}
