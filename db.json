@@ -1,0 +1,69 @@
+{
+	"dogs": [
+		{
+			"img": "./imagenes/perro1.jpg",
+			"name": "Cobu",
+			"telefono": 55533300,
+			"pais": "Perú",
+			"descripcion": "leal",
+			"id": 1
+		},
+		{
+			"img": "./imagenes/perro2.jpg",
+			"name": "Hachi",
+			"telefono": 55533300,
+			"pais": "Perú",
+			"descripcion": "juguetón",
+			"id": 2
+		},
+		{
+			"img": "./imagenes/perro3.jpg",
+			"name": "Manchas",
+			"telefono": 55533300,
+			"pais": "Perú",
+			"descripcion": "comelón",
+			"id": 3
+		},
+		{
+			"img": "./imagenes/perro4.jpg",
+			"name": "Doby",
+			"telefono": 55533300,
+			"pais": "Perú",
+			"descripcion": "resentido",
+			"id": 4
+		},
+		{
+			"img": "./imagenes/perro5.jpg",
+			"name": "Chester",
+			"telefono": 55533300,
+			"pais": "Perú",
+			"descripcion": "amoroso",
+			"id": 5
+		},
+
+		{
+			"img": "./imagenes/perro6.jpg",
+			"name": "Harry",
+			"telefono": 55533300,
+			"pais": "Perú",
+			"descripcion": "saltarín",
+			"id": 6
+		},
+		{
+			"img": "./imagenes/perro7.jpg",
+			"name": "Marley",
+			"telefono": 55533300,
+			"pais": "Perú",
+			"descripcion": "obediente",
+			"id": 7
+		},
+		{
+			"img": "./imagenes/perro8.jpg",
+			"name": "Benji",
+			"telefono": 55533300,
+			"pais": "Perú",
+			"descripcion": "travieso",
+			"id": 8
+		}
+	]
+}
