@@ -19,7 +19,7 @@ La DB es manejada como una API REST, se le realizan pruebas en Postman antes de 
 
 ## Plan de Desarrollo
 
-> Fase Actual: #3
+> Fase Actual: #4
 
 1. Fase 1: Configuración del entorno de desarrollo.
 2. Fase 2: Maquetación de la página de Inicio.
