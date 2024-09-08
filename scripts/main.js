@@ -39,9 +39,16 @@ async function getDogList() {
 	}
 }
 
-async function printDogList(dogList) {
-	if (!dogList) console.log("No se encontraron perros");
-	else {
+function printDogList(dogList) {
+	if (!dogList) {
+		console.error("No se encontraron perros");
+
+		const dogNotFound = document.createElement("p");
+		dogNotFound.classList.add("dog-not-found");
+		dogNotFound.textContent = "No se encontraron perros 😢";
+
+		dogListHTML.appendChild(dogNotFound);
+	} else {
 		console.log(dogList);
 		dogList.forEach((dog) => {
 			const {
