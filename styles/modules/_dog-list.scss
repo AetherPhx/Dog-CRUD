@@ -20,6 +20,14 @@
 		gap: theme.$space-xxs;
 
 		text-align: center;
+		position: relative;
+
+		&:hover {
+			box-shadow: inset 0 0 6px 3px theme.$color-acc;
+			& .dog-actions {
+				opacity: 1;
+			}
+		}
 	}
 
 	&-photo {
@@ -32,5 +40,26 @@
 	&-contact {
 		display: flex;
 		justify-content: space-evenly;
+	}
+
+	&-actions {
+		width: 100%;
+		padding: theme.$space-xxs;
+
+		display: flex;
+		justify-content: space-between;
+
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0;
+
+		transition: opacity 0.3s ease;
+	}
+	&-edit,
+	&-del {
+		& p {
+			font-size: theme.$fs-xs;
+		}
 	}
 }
