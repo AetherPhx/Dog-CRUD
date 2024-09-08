@@ -22,8 +22,8 @@ La DB es manejada como una API REST, se le realizan pruebas en Postman antes de 
 > Fase Actual: #1
 
 1. Fase 1: Configuración del entorno de desarrollo.
-2. **Fase 2: Maquetación de la página de Inicio.**
-3. Fase 3: Implementación de CRUD Simple.
+2. Fase 2: Maquetación de la página de Inicio.
+3. **Fase 3: Implementación de CRUD Simple.**
 4. Fase 4: Implementación de Mensaje de Confirmación.
 
 ### Fase 1: Configuración del entorno de desarrollo
