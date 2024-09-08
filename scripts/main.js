@@ -7,7 +7,7 @@ const dogListHTML = document.querySelector(".dog-list");
 const modalOverlay = document.getElementById("modal-overlay");
 
 // Event Listeners
-(async function initApp() {
+(function initApp() {
 	console.log("App is started");
 	document.addEventListener("DOMContentLoaded", () => {
 		getDogList().then((dogList) => {
@@ -25,7 +25,6 @@ const modalOverlay = document.getElementById("modal-overlay");
 				},
 			} = event;
 
-			// if (actionBtn.classList.contains("dog-del")) deleteDog(dogCard);
 			if (actionBtn.classList.contains("dog-del")) {
 				confirmDeleteDog(dogCard);
 			}
@@ -53,7 +52,6 @@ function printDogList(dogList) {
 
 		dogListHTML.appendChild(dogNotFound);
 	} else {
-		console.log(dogList);
 		dogList.forEach((dog) => {
 			const {
 				img,
@@ -104,29 +102,32 @@ function printDogList(dogList) {
 }
 
 function confirmDeleteDog(dogCard) {
-	modalOverlay.addEventListener("click", (event) => {
-		const { target } = event;
-		console.log(target);
+	modalOverlay.addEventListener("click", handleModalOverlayClick);
 
+	toogleModalOverlay();
+
+	function handleModalOverlayClick(event) {
+		const { target } = event;
 		if (
 			target.classList.contains("modal-overlay") ||
-			target.classList.contains("modal-close")
-		) {
-			console.log("Closing modal");
-			modalOverlay.className = "modal-overlay--hidden";
-		} else if (target.classList.contains("modal-cancel")) {
-			console.log("Cancel deleting dog");
-			console.log("Closing modal");
-			modalOverlay.className = "modal-overlay--hidden";
-		} else if (target.classList.contains("modal-confirm")) {
-			console.log("Deleting dog");
+			target.classList.contains("modal-close") ||
+			target.classList.contains("modal-cancel")
+		)
+			toogleModalOverlay();
+		else if (target.classList.contains("modal-confirm")) {
 			deleteDog(dogCard);
-			console.log("Closing modal");
-			modalOverlay.className = "modal-overlay--hidden";
+			toogleModalOverlay();
 		}
-	});
+	}
 
-	modalOverlay.className = "modal-overlay";
+	function toogleModalOverlay() {
+		if (modalOverlay.classList.contains("modal-overlay--hidden"))
+			modalOverlay.className = "modal-overlay";
+		else {
+			modalOverlay.className = "modal-overlay--hidden";
+			modalOverlay.removeEventListener("click", handleModalOverlayClick);
+		}
+	}
 }
 
 function deleteDog(dogToDelete) {
