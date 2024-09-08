@@ -4,6 +4,7 @@ import axios from "axios";
 // Variables
 const DOG_API_URL = "http://localhost:3000/dogs";
 const dogListHTML = document.querySelector(".dog-list");
+const modalOverlay = document.getElementById("modal-overlay");
 
 // Event Listeners
 (async function initApp() {
@@ -24,7 +25,10 @@ const dogListHTML = document.querySelector(".dog-list");
 				},
 			} = event;
 
-			if (actionBtn.classList.contains("dog-del")) deleteDog(dogCard);
+			// if (actionBtn.classList.contains("dog-del")) deleteDog(dogCard);
+			if (actionBtn.classList.contains("dog-del")) {
+				confirmDeleteDog(dogCard);
+			}
 		});
 	});
 })();
@@ -97,6 +101,32 @@ function printDogList(dogList) {
 			dogListHTML.appendChild(dogCard);
 		});
 	}
+}
+
+function confirmDeleteDog(dogCard) {
+	modalOverlay.addEventListener("click", (event) => {
+		const { target } = event;
+		console.log(target);
+
+		if (
+			target.classList.contains("modal-overlay") ||
+			target.classList.contains("modal-close")
+		) {
+			console.log("Closing modal");
+			modalOverlay.className = "modal-overlay--hidden";
+		} else if (target.classList.contains("modal-cancel")) {
+			console.log("Cancel deleting dog");
+			console.log("Closing modal");
+			modalOverlay.className = "modal-overlay--hidden";
+		} else if (target.classList.contains("modal-confirm")) {
+			console.log("Deleting dog");
+			deleteDog(dogCard);
+			console.log("Closing modal");
+			modalOverlay.className = "modal-overlay--hidden";
+		}
+	});
+
+	modalOverlay.className = "modal-overlay";
 }
 
 function deleteDog(dogToDelete) {
