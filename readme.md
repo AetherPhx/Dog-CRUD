@@ -23,8 +23,8 @@ La DB es manejada como una API REST, se le realizan pruebas en Postman antes de 
 
 1. Fase 1: Configuración del entorno de desarrollo.
 2. Fase 2: Maquetación de la página de Inicio.
-3. **Fase 3: Implementación de CRUD Simple.**
-4. Fase 4: Implementación de Mensaje de Confirmación.
+3. Fase 3: Implementación de CRUD Simple.
+4. **Fase 4: Implementación de Mensaje de Confirmación.**
 
 ### Fase 1: Configuración del entorno de desarrollo
 
@@ -49,7 +49,7 @@ La DB es manejada como una API REST, se le realizan pruebas en Postman antes de 
 
 - Realizar petición GET mediante Axios para obtener la lista de perros.
 - Desarrollar función para pintar la lista de perros.
-- Implementar la fn de pinta al entrar a la web.
+- Implementar la fn de pintar al entrar a la web.
 - Implementar función que borre un perro únicamente de la interfaz.
 
 ### Fase 4: Implementación de Modal de Confirmación

@@ -1,7 +1,7 @@
 {
 	"dogs": [
 		{
-			"img": "./imagenes/perro1.jpg",
+			"img": "./dogs/perro1.jpg",
 			"name": "Cobu",
 			"telefono": 55533300,
 			"pais": "Perú",
@@ -9,7 +9,7 @@
 			"id": 1
 		},
 		{
-			"img": "./imagenes/perro2.jpg",
+			"img": "./dogs/perro2.jpg",
 			"name": "Hachi",
 			"telefono": 55533300,
 			"pais": "Perú",
@@ -17,7 +17,7 @@
 			"id": 2
 		},
 		{
-			"img": "./imagenes/perro3.jpg",
+			"img": "./dogs/perro3.jpg",
 			"name": "Manchas",
 			"telefono": 55533300,
 			"pais": "Perú",
@@ -25,7 +25,7 @@
 			"id": 3
 		},
 		{
-			"img": "./imagenes/perro4.jpg",
+			"img": "./dogs/perro4.jpg",
 			"name": "Doby",
 			"telefono": 55533300,
 			"pais": "Perú",
@@ -33,7 +33,7 @@
 			"id": 4
 		},
 		{
-			"img": "./imagenes/perro5.jpg",
+			"img": "./dogs/perro5.jpg",
 			"name": "Chester",
 			"telefono": 55533300,
 			"pais": "Perú",
@@ -42,7 +42,7 @@
 		},
 
 		{
-			"img": "./imagenes/perro6.jpg",
+			"img": "./dogs/perro6.jpg",
 			"name": "Harry",
 			"telefono": 55533300,
 			"pais": "Perú",
@@ -50,7 +50,7 @@
 			"id": 6
 		},
 		{
-			"img": "./imagenes/perro7.jpg",
+			"img": "./dogs/perro7.jpg",
 			"name": "Marley",
 			"telefono": 55533300,
 			"pais": "Perú",
@@ -58,7 +58,7 @@
 			"id": 7
 		},
 		{
-			"img": "./imagenes/perro8.jpg",
+			"img": "./dogs/perro8.jpg",
 			"name": "Benji",
 			"telefono": 55533300,
 			"pais": "Perú",
