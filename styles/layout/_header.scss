@@ -1,0 +1,13 @@
+@use "../theme/" as theme;
+
+.header {
+	background-color: theme.$color-acc;
+	padding: theme.$space-xs;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	span {
+		font-size: theme.$fs-xs;
+	}
+}
