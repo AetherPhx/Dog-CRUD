@@ -53,14 +53,7 @@ function printDogList(dogList) {
 		dogListHTML.appendChild(dogNotFound);
 	} else {
 		dogList.forEach((dog) => {
-			const {
-				img,
-				name,
-				telefono: phone,
-				pais: country,
-				descripcion: desc,
-				id,
-			} = dog;
+			const { id, img, name, phone, country, description: desc } = dog;
 
 			const dogCard = document.createElement("li");
 			dogCard.classList.add("dog-card");

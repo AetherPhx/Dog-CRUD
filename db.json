@@ -1,69 +1,69 @@
 {
 	"dogs": [
 		{
+			"id": "1",
 			"img": "./dogs/perro1.jpg",
 			"name": "Cobu",
-			"telefono": 55533300,
-			"pais": "Perú",
-			"descripcion": "leal",
-			"id": 1
+			"phone": "55533300",
+			"country": "Perú",
+			"description": "leal"
 		},
 		{
+			"id": "2",
 			"img": "./dogs/perro2.jpg",
 			"name": "Hachi",
-			"telefono": 55533300,
-			"pais": "Perú",
-			"descripcion": "juguetón",
-			"id": 2
+			"phone": "55533300",
+			"country": "Perú",
+			"description": "juguetón"
 		},
 		{
+			"id": "3",
 			"img": "./dogs/perro3.jpg",
 			"name": "Manchas",
-			"telefono": 55533300,
-			"pais": "Perú",
-			"descripcion": "comelón",
-			"id": 3
+			"phone": "55533300",
+			"country": "Perú",
+			"description": "comelón"
 		},
 		{
+			"id": "4",
 			"img": "./dogs/perro4.jpg",
 			"name": "Doby",
-			"telefono": 55533300,
-			"pais": "Perú",
-			"descripcion": "resentido",
-			"id": 4
+			"phone": "55533300",
+			"country": "Perú",
+			"description": "resentido"
 		},
 		{
+			"id": "5",
 			"img": "./dogs/perro5.jpg",
 			"name": "Chester",
-			"telefono": 55533300,
-			"pais": "Perú",
-			"descripcion": "amoroso",
-			"id": 5
+			"phone": "55533300",
+			"country": "Perú",
+			"description": "amoroso"
 		},
 
 		{
+			"id": "6",
 			"img": "./dogs/perro6.jpg",
 			"name": "Harry",
-			"telefono": 55533300,
-			"pais": "Perú",
-			"descripcion": "saltarín",
-			"id": 6
+			"phone": "55533300",
+			"country": "Perú",
+			"description": "saltarín"
 		},
 		{
+			"id": "7",
 			"img": "./dogs/perro7.jpg",
 			"name": "Marley",
-			"telefono": 55533300,
-			"pais": "Perú",
-			"descripcion": "obediente",
-			"id": 7
+			"phone": "55533300",
+			"country": "Perú",
+			"description": "obediente"
 		},
 		{
+			"id": "8",
 			"img": "./dogs/perro8.jpg",
 			"name": "Benji",
-			"telefono": 55533300,
-			"pais": "Perú",
-			"descripcion": "travieso",
-			"id": 8
+			"phone": "55533300",
+			"country": "Perú",
+			"description": "travieso"
 		}
 	]
 }
