@@ -58,38 +58,46 @@ La DB es manejada como una API REST, se le realizan pruebas en Postman antes de 
 - Brindar estilos al modal según el diseño y darle la interactividad para que se muestre al querer eleminar un perro.
 - Implementar funciones al confirmar o cancelar desde el modal.
 
-# Reto Avanzado (Próximamente 🔥)
+# Reto Avanzado
 
 ## Descripción
 
-Este reto adicional consiste en extender la funcionalidad del CRUD implementado anteriormente, enfocándose en interactuar directamente con la base de datos. Además, se aprovechará el uso de módulos ES para estructurar mejor el código.
+Este reto adicional consiste en extender la funcionalidad del CRUD implementado anteriormente y mejorar la organización del código mediante el uso de módulos ES.
 
-## Nuevos Objetivos
+### Nuevos Objetivos
 
-1. Refactorizar el código usando módulos ES para una mejor organización.
-2. Implementar funcionalidad para agregar nuevos perros a la base de datos.
-3. Implementar funcionalidad para eliminar perros de la base de datos.
+1. Organizar el código utilizando módulos ES.
+2. Completar el CRUD: Agregar, eliminar y modificar perros en la base de datos.
+3. Mejorar la experiencia del usuario con mensajes de éxito, error y confirmación en cada acción del CRUD.
 
-## Plan de Desarrollo
+## Implementación
 
-### Fase 5: Refactorización con Módulos ES
+### Refactorización con Módulos ES
 
-- Crear módulo para el manejo de peticiones.
-- Crear módulo para las funcionalidades del CRUD.
-- Separar las funcionalidades del CRUD en módulos individuales (por ejemplo, `getDogs.js`, `addDog.js`, `deleteDog.js`).
-- Organizar los módulos en carpetas y asegurarse de que cada archivo tenga una única responsabilidad.
-- Actualizar el código principal para importar los módulos ES donde se necesiten.
+- Crear módulo para manejar peticiones HTTP (API).
+- Dividir las funcionalidades CRUD en módulos individuales.
+- Actualizar el código principal para importar los módulos donde sea necesario.
 
-### Fase 6: Implementación de Agregar Perros a la DB
+### Funcionalidades CRUD
 
-- Crear un formulario para añadir perros con campos de nombre, raza, y edad.
-- Implementar la función que realice una petición POST a la base de datos para agregar un nuevo perro.
-- Validar los datos del formulario antes de enviarlos.
+#### Agregar Perros
 
-### Fase 7: Implementación de Eliminar Perros de la DB
+- Crear un formulario con los campos necesarios y validar los datos.
+- Realizar una petición POST para agregar un nuevo perro a la base de datos.
+- Si la operación es exitosa, mostrar el nuevo perro en la interfaz.
 
-- Actualizar la función de eliminación para que, además de eliminar el perro de la interfaz, se realice una petición DELETE a la base de datos.
+#### Eliminar Perros
 
-### Fase 8: Mensajes de Éxito o Falla
+- Actualizar la función de eliminación para incluir una petición DELETE.
+- Eliminar el perro de la interfaz si la petición DELETE es exitosa.
 
-- Implementar mensajes de éxito o error según el resultado de la operación.
+#### Modificación de Perros
+
+- Crear un formulario para modificar los datos del perro con validación de datos.
+- Realizar una petición PATCH para actualizar los datos del perro en la DB.
+- Reflejar los cambios en la interfaz si la modificación es exitosa.
+
+### Mensajes al Usuario
+
+- Implementar `notificaciones tipo toast` de éxito o error tras cada operación.
+- Crear modales de confirmación para cada acción.
