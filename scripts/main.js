@@ -1,24 +1,55 @@
 import "./../styles/main.scss";
-import axios from "axios";
+import { getDogList } from "./dogService.js";
+import { deleteDog } from "./crud.js";
 
 // Variables
-const DOG_API_URL = "http://localhost:3000/dogs";
 const dogListHTML = document.querySelector(".dog-list");
 const modalOverlay = document.getElementById("modal-overlay");
+const currentAction = {
+	question: "",
+	confirm: "",
+	action: null,
+
+	asign(question, confirm, action) {
+		this.question = question;
+		this.confirm = confirm;
+		this.action = action;
+	},
+
+	clear() {
+		this.question = "";
+		this.confirm = "";
+		this.action = null;
+	},
+};
 
 // Event Listeners
 (function initApp() {
 	console.log("App is started");
 	document.addEventListener("DOMContentLoaded", () => {
-		getDogList().then((dogList) => {
-			printDogList(dogList);
+		modalOverlay.addEventListener("click", (event) => {
+			const { target } = event;
+
+			if (
+				target.classList.contains("modal-overlay") ||
+				target.classList.contains("modal-close") ||
+				target.classList.contains("modal-cancel")
+			) {
+				closeModal();
+			} else if (target.classList.contains("modal-confirm")) {
+				if (currentAction.action) currentAction.action(); // Ejecutar la acción
+				else console.error("No hay una acción seleccionada");
+				closeModal();
+			}
 		});
 
+		getDogList().then((dogList) => printDogList(dogList));
+
 		dogListHTML.addEventListener("click", (event) => {
+			// Destructurar para obtener el botón de acción y la tarjeta de perro donde se hizo el click
 			const {
-				target: { parentElement: actionBtn }, // Botón de acción
+				target: { parentElement: actionBtn },
 				target: {
-					// Tarjeta de perro
 					parentElement: {
 						parentElement: { parentElement: dogCard },
 					},
@@ -26,26 +57,20 @@ const modalOverlay = document.getElementById("modal-overlay");
 			} = event;
 
 			if (actionBtn.classList.contains("dog-del")) {
-				confirmDeleteDog(dogCard);
+				currentAction.asign(
+					"¿Estas seguro de querer eliminar a este perro?",
+					"Eliminar",
+					() => deleteDog(dogCard)
+				);
+				openModal(currentAction);
 			}
 		});
 	});
 })();
 
 // Functions
-async function getDogList() {
-	try {
-		const { data: dogList } = await axios.get(DOG_API_URL);
-		return dogList;
-	} catch (error) {
-		console.error("Error al obtener la lista de perros:\n", error.message);
-	}
-}
-
 function printDogList(dogList) {
-	if (!dogList) {
-		console.error("No se encontraron perros");
-
+	if (!dogList || dogList.length === 0) {
 		const dogNotFound = document.createElement("p");
 		dogNotFound.classList.add("dog-not-found");
 		dogNotFound.textContent = "No se encontraron perros 😢";
@@ -94,35 +119,48 @@ function printDogList(dogList) {
 	}
 }
 
-function confirmDeleteDog(dogCard) {
-	modalOverlay.addEventListener("click", handleModalOverlayClick);
+function openModal(currentAction) {
+	try {
+		const { question, confirm } = currentAction;
+		if (!question || !confirm)
+			throw new Error("La información de la acción actual está incompleta");
 
-	toogleModalOverlay();
+		if (document.querySelector(".modal")) {
+			console.log("Ya existe un modal, por lo que se reescribirán sus datos");
+			document.querySelector(".modal-question").textContent = question;
+			document.querySelector(".modal-confirm").textContent = confirm;
+			// modalQuestion.textContent = question;
+			// confirmBtn.textContent = confirm;
+		} else {
+			const modal = document.createElement("section");
 
-	function handleModalOverlayClick(event) {
-		const { target } = event;
-		if (
-			target.classList.contains("modal-overlay") ||
-			target.classList.contains("modal-close") ||
-			target.classList.contains("modal-cancel")
-		)
-			toogleModalOverlay();
-		else if (target.classList.contains("modal-confirm")) {
-			deleteDog(dogCard);
-			toogleModalOverlay();
+			modal.className = "modal";
+			modal.innerHTML = `
+			<div class="modal-menu">
+				<button class="modal-close">X</button>
+			</div>
+		
+			<section class="modal-content">
+				<p class="modal-question">
+					${question}
+				</p>
+		
+				<footer class="modal-actions">
+					<button class="modal-confirm">${confirm}</button>
+					<button class="modal-cancel">Cancelar</button>
+				</footer>
+			</section>
+			`;
+			modalOverlay.appendChild(modal);
 		}
-	}
 
-	function toogleModalOverlay() {
-		if (modalOverlay.classList.contains("modal-overlay--hidden"))
-			modalOverlay.className = "modal-overlay";
-		else {
-			modalOverlay.className = "modal-overlay--hidden";
-			modalOverlay.removeEventListener("click", handleModalOverlayClick);
-		}
+		modalOverlay.className = "modal-overlay";
+	} catch (error) {
+		console.error(error);
 	}
 }
 
-function deleteDog(dogToDelete) {
-	dogToDelete ? dogToDelete.remove() : console.error("Dog not found");
+function closeModal() {
+	modalOverlay.className = "modal-overlay--hidden";
+	currentAction.clear();
 }
