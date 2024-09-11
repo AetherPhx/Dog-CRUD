@@ -78,7 +78,7 @@ function printDogList(dogList) {
 		dogListHTML.appendChild(dogNotFound);
 	} else {
 		dogList.forEach((dog) => {
-			const { id, img, name, phone, country, description: desc } = dog;
+			const { id, img, name, phone, mail, country, description: desc } = dog;
 
 			const dogCard = document.createElement("li");
 			dogCard.classList.add("dog-card");
@@ -90,9 +90,9 @@ function printDogList(dogList) {
 							<h2 class="dog-name">${name}</h2>
 
 							<div class="dog-contact">
-								<p id="phone">${phone}</p>
+								<a class="dog-link" href="https://api.whatsapp.com/send?phone=51${phone}" target="_blank" id="phone">${phone}</a>
 								|
-								<p id="email">Correo</p>
+								<a class="dog-link" href="mailto:${mail}" target="_blank" id="email">${mail}</a>
 							</div>
 						</header>
 

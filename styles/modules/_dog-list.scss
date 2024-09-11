@@ -17,7 +17,7 @@
 	}
 
 	&-card {
-		width: 240px;
+		width: 100%;
 		padding: theme.$space-md;
 		border: 2px solid theme.$color-acc;
 
@@ -26,7 +26,6 @@
 		align-items: center;
 		gap: theme.$space-xxs;
 
-		text-align: center;
 		position: relative;
 
 		&:hover {
@@ -37,6 +36,12 @@
 		}
 	}
 
+	&-header {
+		width: 100%;
+		display: grid;
+		place-items: center;
+	}
+
 	&-photo {
 		width: 140px;
 		height: 140px;
@@ -45,8 +50,11 @@
 	}
 
 	&-contact {
+		width: 100%;
+		padding-inline: theme.$space-xs;
 		display: flex;
 		justify-content: space-evenly;
+		gap: theme.$space-xxs;
 	}
 
 	&-actions {
@@ -65,8 +73,10 @@
 	}
 	&-edit,
 	&-del {
+		cursor: pointer;
 		& p {
 			font-size: theme.$fs-xs;
+			text-align: center;
 		}
 	}
 }
