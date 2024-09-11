@@ -1,52 +1,21 @@
 import "./../styles/main.scss";
 import { getDogList } from "./dogService.js";
 import { deleteDog } from "./crud.js";
+import { addModalListener, openModal, currentAction } from "./modalHandler.js";
 
 // Variables
 const dogListHTML = document.querySelector(".dog-list");
-const modalOverlay = document.getElementById("modal-overlay");
-const currentAction = {
-	question: "",
-	confirm: "",
-	action: null,
+// const modalOverlay = document.getElementById("modal-overlay");
 
-	asign(question, confirm, action) {
-		this.question = question;
-		this.confirm = confirm;
-		this.action = action;
-	},
-
-	clear() {
-		this.question = "";
-		this.confirm = "";
-		this.action = null;
-	},
-};
-
-// Event Listeners
 (function initApp() {
 	console.log("App is started");
 	document.addEventListener("DOMContentLoaded", () => {
-		modalOverlay.addEventListener("click", (event) => {
-			const { target } = event;
-
-			if (
-				target.classList.contains("modal-overlay") ||
-				target.classList.contains("modal-close") ||
-				target.classList.contains("modal-cancel")
-			) {
-				closeModal();
-			} else if (target.classList.contains("modal-confirm")) {
-				if (currentAction.action) currentAction.action(); // Ejecutar la acción
-				else console.error("No hay una acción seleccionada");
-				closeModal();
-			}
-		});
+		addModalListener();
 
 		getDogList().then((dogList) => printDogList(dogList));
 
 		dogListHTML.addEventListener("click", (event) => {
-			// Destructurar para obtener el botón de acción y la tarjeta de perro donde se hizo el click
+			// Destructurar botón de acción y tarjeta de perro
 			const {
 				target: { parentElement: actionBtn },
 				target: {
@@ -63,6 +32,10 @@ const currentAction = {
 					() => deleteDog(dogCard)
 				);
 				openModal(currentAction);
+			}
+
+			if (actionBtn.classList.contains("dog-edit")) {
+				console.log("Próximamente: Función de editar");
 			}
 		});
 	});
@@ -117,50 +90,4 @@ function printDogList(dogList) {
 			dogListHTML.appendChild(dogCard);
 		});
 	}
-}
-
-function openModal(currentAction) {
-	try {
-		const { question, confirm } = currentAction;
-		if (!question || !confirm)
-			throw new Error("La información de la acción actual está incompleta");
-
-		if (document.querySelector(".modal")) {
-			console.log("Ya existe un modal, por lo que se reescribirán sus datos");
-			document.querySelector(".modal-question").textContent = question;
-			document.querySelector(".modal-confirm").textContent = confirm;
-			// modalQuestion.textContent = question;
-			// confirmBtn.textContent = confirm;
-		} else {
-			const modal = document.createElement("section");
-
-			modal.className = "modal";
-			modal.innerHTML = `
-			<div class="modal-menu">
-				<button class="modal-close">X</button>
-			</div>
-		
-			<section class="modal-content">
-				<p class="modal-question">
-					${question}
-				</p>
-		
-				<footer class="modal-actions">
-					<button class="modal-confirm">${confirm}</button>
-					<button class="modal-cancel">Cancelar</button>
-				</footer>
-			</section>
-			`;
-			modalOverlay.appendChild(modal);
-		}
-
-		modalOverlay.className = "modal-overlay";
-	} catch (error) {
-		console.error(error);
-	}
-}
-
-function closeModal() {
-	modalOverlay.className = "modal-overlay--hidden";
-	currentAction.clear();
 }
