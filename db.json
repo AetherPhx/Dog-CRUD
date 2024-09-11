@@ -1,69 +1,77 @@
 {
 	"dogs": [
 		{
-			"id": "1",
+			"id": "D-1",
 			"img": "./dogs/perro1.jpg",
 			"name": "Cobu",
-			"phone": "55533300",
+			"phone": "555333000",
+			"mail": "dog@mail.com",
 			"country": "Perú",
-			"description": "leal"
+			"description": "Cobu es un perro leal que siempre estará a tu lado, mostrándote su devoción incondicional."
 		},
 		{
-			"id": "2",
+			"id": "D-2",
 			"img": "./dogs/perro2.jpg",
 			"name": "Hachi",
-			"phone": "55533300",
+			"phone": "555333000",
+			"mail": "dog@mail.com",
 			"country": "Perú",
-			"description": "juguetón"
+			"description": "Hachi es un perro juguetón que llena de alegría el hogar con su energía y entusiasmo constante."
 		},
 		{
-			"id": "3",
+			"id": "D-3",
 			"img": "./dogs/perro3.jpg",
 			"name": "Manchas",
-			"phone": "55533300",
+			"phone": "555333000",
+			"mail": "dog@mail.com",
 			"country": "Perú",
-			"description": "comelón"
+			"description": "Manchas es un comelón empedernido, siempre en busca de algo delicioso para probar y disfrutar."
 		},
 		{
-			"id": "4",
+			"id": "D-4",
 			"img": "./dogs/perro4.jpg",
 			"name": "Doby",
-			"phone": "55533300",
+			"phone": "555333000",
+			"mail": "dog@mail.com",
 			"country": "Perú",
-			"description": "resentido"
+			"description": "Doby es un perro resentido que a veces puede ser un poco distante, pero su cariño se revela a quienes realmente conoce."
 		},
 		{
-			"id": "5",
+			"id": "D-5",
 			"img": "./dogs/perro5.jpg",
 			"name": "Chester",
-			"phone": "55533300",
+			"phone": "555333000",
+			"mail": "dog@mail.com",
 			"country": "Perú",
-			"description": "amoroso"
+			"description": "Chester es un perro amoroso que siempre ofrece cariño y afecto, convirtiéndose en el mejor amigo de la familia."
 		},
 
 		{
-			"id": "6",
+			"id": "D-6",
 			"img": "./dogs/perro6.jpg",
 			"name": "Harry",
-			"phone": "55533300",
+			"phone": "555333000",
+			"mail": "dog@mail.com",
 			"country": "Perú",
-			"description": "saltarín"
+			"description": "Harry es un saltarín incansable, siempre listo para brincar y jugar con gran energía."
 		},
 		{
-			"id": "7",
+			"id": "D-7",
 			"img": "./dogs/perro7.jpg",
 			"name": "Marley",
-			"phone": "55533300",
+			"phone": "555333000",
+			"mail": "dog@mail.com",
 			"country": "Perú",
-			"description": "obediente"
+			"description": "Marley es un perro obediente que sigue las órdenes con precisión y es una compañía confiable."
 		},
 		{
-			"id": "8",
+			"id": "D-8",
 			"img": "./dogs/perro8.jpg",
 			"name": "Benji",
-			"phone": "55533300",
+			"phone": "555333000",
+			"mail": "dog@mail.com",
 			"country": "Perú",
-			"description": "travieso"
+			"description": "Benji es un perro travieso que siempre está buscando nuevas aventuras y travesuras para divertirse."
 		}
 	]
 }
