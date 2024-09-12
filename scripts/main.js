@@ -1,16 +1,20 @@
 import "./../styles/main.scss";
 import { getDogList } from "./dogService.js";
 import { deleteDog } from "./crud.js";
-import { addModalListener, openModal, currentAction } from "./modalHandler.js";
+// import {
+// 	addModalListener,
+// 	openModal,
+// 	currentAction,
+// } from "./modalHandler-PREVIOUS.js";
+import { modalHandler } from "./modalHandler.js";
 
 // Variables
 const dogListHTML = document.querySelector(".dog-list");
-// const modalOverlay = document.getElementById("modal-overlay");
 
 (function initApp() {
 	console.log("App is started");
 	document.addEventListener("DOMContentLoaded", () => {
-		addModalListener();
+		// addModalListener();
 
 		getDogList().then((dogList) => printDogList(dogList));
 
@@ -26,12 +30,14 @@ const dogListHTML = document.querySelector(".dog-list");
 			} = event;
 
 			if (actionBtn.classList.contains("dog-del")) {
-				currentAction.asign(
-					"¿Estas seguro de querer eliminar a este perro?",
-					"Eliminar",
-					() => deleteDog(dogCard)
-				);
-				openModal(currentAction);
+				console.log("En mantenimiento: Función de eliminar");
+				modalHandler("delete", dogCard);
+				// currentAction.asign(
+				// 	"¿Estas seguro de querer eliminar a este perro?",
+				// 	"Eliminar",
+				// 	() => deleteDog(dogCard)
+				// );
+				// openModal(currentAction);
 			}
 
 			if (actionBtn.classList.contains("dog-edit")) {
