@@ -1,11 +1,5 @@
 import "./../styles/main.scss";
 import { getDogList } from "./dogService.js";
-import { deleteDog } from "./crud.js";
-// import {
-// 	addModalListener,
-// 	openModal,
-// 	currentAction,
-// } from "./modalHandler-PREVIOUS.js";
 import { modalHandler } from "./modalHandler.js";
 
 // Variables
@@ -14,8 +8,6 @@ const dogListHTML = document.querySelector(".dog-list");
 (function initApp() {
 	console.log("App is started");
 	document.addEventListener("DOMContentLoaded", () => {
-		// addModalListener();
-
 		getDogList().then((dogList) => printDogList(dogList));
 
 		dogListHTML.addEventListener("click", (event) => {
@@ -32,16 +24,11 @@ const dogListHTML = document.querySelector(".dog-list");
 			if (actionBtn.classList.contains("dog-del")) {
 				console.log("En mantenimiento: Función de eliminar");
 				modalHandler("delete", dogCard);
-				// currentAction.asign(
-				// 	"¿Estas seguro de querer eliminar a este perro?",
-				// 	"Eliminar",
-				// 	() => deleteDog(dogCard)
-				// );
-				// openModal(currentAction);
 			}
 
 			if (actionBtn.classList.contains("dog-edit")) {
 				console.log("Próximamente: Función de editar");
+				modalHandler("add");
 			}
 		});
 	});
@@ -61,7 +48,7 @@ function printDogList(dogList) {
 
 			const dogCard = document.createElement("li");
 			dogCard.classList.add("dog-card");
-			dogCard.dataset.id = id;
+			dogCard.id = id;
 			dogCard.innerHTML = `
 			<header class="dog-header">
 							<img class="dog-photo" src="${img}" alt="Perro" />
