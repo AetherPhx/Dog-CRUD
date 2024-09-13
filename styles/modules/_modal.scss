@@ -39,6 +39,7 @@
 	&-menu {
 		padding: theme.$space-xxs theme.$space-xs;
 		display: flex;
+		flex-direction: row-reverse;
 		justify-content: space-between;
 		width: 100%;
 		position: absolute;
