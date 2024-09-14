@@ -46,11 +46,12 @@ class Modal {
 			return modalContent;
 		} else if (this.actionName === "add" || this.actionName === "edit") {
 			const values = {
-				img: "",
 				name: "",
+				breed: "",
 				phone: "",
 				mail: "",
 				country: "",
+				img: "",
 				description: "",
 			};
 			if (this.actionName === "edit") Object.assign(values, this.dog);

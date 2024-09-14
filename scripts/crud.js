@@ -116,7 +116,7 @@ export function editDog(dogCard, dogForm, dogToEdit) {
 		requestPartialUpdateDog(newDog, dogToEdit.id).then((newDogEdited) => {
 			console.log(newDogEdited);
 
-			if (newDogEdited)
+			if (!newDogEdited)
 				throw new Error("Error al editar el perro en la base de datos");
 
 			replaceDog(dogCard, newDogEdited);
