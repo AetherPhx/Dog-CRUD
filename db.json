@@ -92,13 +92,13 @@
     },
     {
       "id": "1420",
-      "img": "Nuevo",
+      "img": "Undefined?",
       "name": "Nuevo1",
-      "breed": "Nuevo",
+      "breed": "Imprecisa",
       "phone": "Nuevo",
       "mail": "Nuevo",
       "country": "bolivia",
-      "description": "Nuevo"
+      "description": "Nueva descripción!"
     }
   ]
 }
