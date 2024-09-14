@@ -2,84 +2,103 @@
   "dogs": [
     {
       "id": "D-1",
-      "img": "perro1.jpg",
       "name": "Cobu",
+      "breed": "Pug",
       "phone": "555333000",
       "mail": "dog@mail.com",
       "country": "Perú",
-      "description": "Cobu es un perro leal que siempre estará a tu lado, mostrándote su devoción incondicional."
+      "img": "perro1.jpg",
+      "description": "Cobu es un pug que siempre estará a tu lado, mostrándote su devoción incondicional."
     },
     {
       "id": "D-2",
-      "img": "perro2.jpg",
       "name": "Hachi",
+      "breed": "Imprecisa",
       "phone": "555333000",
       "mail": "dog@mail.com",
       "country": "Perú",
+      "img": "perro2.jpg",
       "description": "Hachi es un perro juguetón que llena de alegría el hogar con su energía y entusiasmo constante."
     },
     {
       "id": "D-3",
-      "img": "perro3.jpg",
       "name": "Manchas",
+      "breed": "San Bernardo",
       "phone": "555333000",
       "mail": "dog@mail.com",
       "country": "Perú",
+      "img": "perro3.jpg",
       "description": "Manchas es un comelón empedernido, siempre en busca de algo delicioso para probar y disfrutar."
     },
     {
       "id": "D-4",
-      "img": "perro4.jpg",
       "name": "Doby",
+      "breed": "Cocker spaniel inglés",
       "phone": "555333000",
       "mail": "dog@mail.com",
       "country": "Perú",
-      "description": "Doby es un perro resentido que a veces puede ser un poco distante, pero su cariño se revela a quienes realmente conoce."
+      "img": "perro4.jpg",
+      "description": "Doby es un cocker resentido que a veces puede ser un poco distante, pero su cariño se revela a quienes realmente conoce."
     },
     {
       "id": "D-5",
-      "img": "perro5.jpg",
       "name": "Chester",
+      "breed": "Siberian husky",
       "phone": "555333000",
       "mail": "dog@mail.com",
       "country": "Perú",
-      "description": "Chester es un perro amoroso que siempre ofrece cariño y afecto, convirtiéndose en el mejor amigo de la familia."
+      "img": "perro5.jpg",
+      "description": "Chester es un siberiano amoroso que siempre ofrece cariño y afecto, convirtiéndose en el mejor amigo de la familia."
     },
     {
       "id": "D-6",
-      "img": "perro6.jpg",
       "name": "Harry",
+      "breed": "Border collie",
       "phone": "555333000",
       "mail": "dog@mail.com",
       "country": "Perú",
-      "description": "Harry es un saltarín incansable, siempre listo para brincar y jugar con gran energía."
+      "img": "perro6.jpg",
+      "description": "Harry es un border collie incansable, siempre listo para brincar y jugar con gran energía."
     },
     {
       "id": "D-7",
-      "img": "perro7.jpg",
       "name": "Marley",
+      "breed": "Pomerania",
       "phone": "555333000",
       "mail": "dog@mail.com",
       "country": "Perú",
-      "description": "Marley es un perro obediente que sigue las órdenes con precisión y es una compañía confiable."
+      "img": "perro7.jpg",
+      "description": "Marley es una pomerania obediente que sigue las órdenes con precisión y es una compañía confiable."
     },
     {
       "id": "D-8",
-      "img": "perro8.jpg",
       "name": "Benji",
+      "breed": "Imprecisa",
       "phone": "555333000",
       "mail": "dog@mail.com",
       "country": "Perú",
+      "img": "perro8.jpg",
       "description": "Benji es un perro travieso que siempre está buscando nuevas aventuras y travesuras para divertirse."
     },
     {
       "id": "5932",
-      "img": "perro5.jpg",
       "name": "Another",
+      "breed": "Imprecisa",
       "phone": "123456789",
       "mail": "d@dog.com",
       "country": "colombia",
+      "img": "perro5.jpg",
       "description": "This is a large description and dont say anything.\\\\nSo dont read because its a waste of time"
+    },
+    {
+      "id": "1420",
+      "img": "Nuevo",
+      "name": "Nuevo1",
+      "breed": "Nuevo",
+      "phone": "Nuevo",
+      "mail": "Nuevo",
+      "country": "bolivia",
+      "description": "Nuevo"
     }
   ]
 }

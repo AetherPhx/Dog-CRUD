@@ -61,15 +61,19 @@ class Modal {
 				<input class="modal-input" type="text" name="name" placeholder="Nombre" value="${
 					values.name
 				}">
-				<input class="modal-input" type="text" name="img" placeholder="Nombre del archivo" value="${
-					values.img
+
+				<input class="modal-input" type="text" name="breed" placeholder="Raza" value="${
+					values.breed
 				}">
+
 				<input class="modal-input" type="text" name="phone" placeholder="Teléfono" value="${
 					values.phone
 				}">
+
 				<input class="modal-input" type="email" name="mail" placeholder="Email" value="${
 					values.mail
 				}">
+
 				<select class="modal-input" name="country">
 					<option value="perú" ${
 						values.country === "perú" ? "selected" : ""
@@ -87,7 +91,12 @@ class Modal {
 						values.country === "ecuador" ? "selected" : ""
 					}>Ecuador</option>
 				</select>
-				<textarea name="description" placeholder="Descripción">${
+
+				<input class="modal-input" type="text" name="img" placeholder="Nombre del archivo" value="${
+					values.img
+				}">
+
+				<textarea class="modal-input" name="description" rows="5" placeholder="Descripción del mascota">${
 					values.description
 				}</textarea>
 			`;
@@ -95,7 +104,6 @@ class Modal {
 			return modalContent;
 		}
 	}
-
 	createModalActions() {
 		const modalActions = document.createElement("footer");
 		modalActions.className = "modal-actions";
@@ -152,7 +160,7 @@ async function findDogById(id) {
 		if (!dog) throw new Error("No se encontró el perro");
 		return dog;
 	} catch (error) {
-		console.error(error);
+		console.error("❗  Error al buscar el perro:\n", error.message);
 	}
 }
 

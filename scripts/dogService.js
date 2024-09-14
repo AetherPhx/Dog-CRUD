@@ -11,7 +11,7 @@ export async function requestGetDogById(id) {
 	}
 }
 
-export async function getDogList() {
+export async function requestGetDogList() {
 	try {
 		const { data: dogList } = await axios.get(DOG_API_URL);
 		return dogList;
@@ -40,7 +40,7 @@ export async function requestDeleteDog(dog) {
 		const { statusText } = await axios.delete(`${DOG_API_URL}/${dog.id}`);
 		if (statusText === "OK") return true;
 	} catch (error) {
-		console.error("Error al eliminar el perro:\n", error.message);
+		console.error("Error en la petición de eliminación:\n", error.message);
 		return false;
 	}
 }
@@ -53,15 +53,18 @@ export async function requestPartialUpdateDog(newData, id) {
 		);
 		if (statusText === "OK") return data;
 	} catch (error) {
-		console.error("Error al editar el perro:\n", error.message);
+		console.error("Error al editar parcialmente el perro:\n", error.message);
 	}
 }
 
-export async function requestFullUpdateDog(dog) {
+export async function requestFullUpdateDog(newData, id) {
 	try {
-		const { data, statusText } = await axios.put(DOG_API_URL, dog);
+		const { data, statusText } = await axios.put(
+			`${DOG_API_URL}/${id}`,
+			newData
+		);
 		if (statusText === "OK") return data;
 	} catch (error) {
-		console.error("Error al editar el perro:\n", error.message);
+		console.error("Error al editar por completo el perro:\n", error.message);
 	}
 }

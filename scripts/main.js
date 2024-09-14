@@ -1,5 +1,5 @@
 import "./../styles/main.scss";
-import { getDogList } from "./dogService.js";
+import { requestGetDogList } from "./dogService.js";
 import { modalHandler } from "./modalHandler.js";
 
 // Variables
@@ -13,7 +13,7 @@ const dogListHTML = document.querySelector(".dog-list");
 			if (event.target.classList.contains("add-btn")) modalHandler("add");
 		});
 
-		getDogList().then((dogList) => printDogList(dogList));
+		requestGetDogList().then((dogList) => printDogList(dogList));
 
 		dogListHTML.addEventListener("click", (event) => {
 			// Destructurar botón de acción y tarjeta de perro
@@ -49,7 +49,7 @@ export function printDogList(dogList) {
 }
 
 export function createDogCard(dog) {
-	const { id, img, name, phone, mail, country, description: desc } = dog;
+	const { id, breed, name, phone, mail, country, img, description: desc } = dog;
 
 	const dogCard = document.createElement("li");
 	dogCard.classList.add("dog-card");
@@ -58,8 +58,11 @@ export function createDogCard(dog) {
 	<header class="dog-header">
 					<img class="dog-photo" src="./dogs/${img}" alt="${name}">
 
-					<h2 class="dog-name">${name}</h2>
-
+					<div class="dog-title">
+						<h2 class="dog-name">${name}</h2> 
+						${breed !== "Imprecisa" ? `| <p class="dog-breed">${breed}</p>` : ""}
+					</div>
+					
 					<div class="dog-contact">
 						<a class="dog-link" href="https://api.whatsapp.com/send?phone=51${phone}" target="_blank" id="phone">${phone}</a>
 						|
@@ -95,7 +98,7 @@ export function printDog(dogCard) {
 
 export function refreshList() {
 	dogListHTML.innerHTML = "";
-	getDogList().then((dogList) => printDogList(dogList));
+	requestGetDogList().then((dogList) => printDogList(dogList));
 }
 
 export function replaceDog(dogCard, dog) {

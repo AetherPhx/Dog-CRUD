@@ -11,6 +11,7 @@ class Dog {
 	constructor() {
 		this.img = "";
 		this.name = "";
+		this.breed = "";
 		this.phone = "";
 		this.mail = "";
 		this.country = "";
@@ -23,21 +24,23 @@ class Dog {
 
 	isValid() {
 		return (
-			this.img &&
 			this.name &&
+			this.breed &&
 			this.phone &&
 			this.mail &&
 			this.country &&
+			this.img &&
 			this.description
 		);
 	}
 
 	restart() {
-		this.img = "";
 		this.name = "";
+		this.breed = "";
 		this.phone = "";
 		this.mail = "";
 		this.country = "";
+		this.img = "";
 		this.description = "";
 	}
 
@@ -56,7 +59,7 @@ export function deleteDog(dogCardToDelete) {
 			if (status) {
 				dogCardToDelete.remove();
 				console.log("Dog was deleted successfully");
-			}
+			} else throw new Error("Error al eliminar el perro de la base de datos");
 		});
 	} catch (error) {
 		console.error("❗  Error al eliminar el perro:\n", error.message);
@@ -73,7 +76,13 @@ export function addDog(dogForm) {
 	try {
 		if (isValidForm(dogForm, newDog)) {
 			requestAddDog(newDog).then((newDogAdded) => {
-				newDogAdded ? printDog(createDogCard(newDogAdded)) : refreshList();
+				console.log(newDogAdded);
+
+				if (!newDogAdded)
+					throw new Error("Error al agregar el perro a la base de datos");
+
+				printDog(createDogCard(newDogAdded));
+				console.log("Dog added successfully");
 				newDog.restart();
 				dogForm.reset();
 				closeModal();
@@ -83,7 +92,10 @@ export function addDog(dogForm) {
 		console.groupEnd();
 	} catch (error) {
 		console.error("❗  Error al agregar el perro:\n", error.message);
+		newDog.restart();
+		dogForm.reset();
 		refreshList();
+		closeModal();
 	}
 }
 
@@ -103,7 +115,12 @@ export function editDog(dogCard, dogForm, dogToEdit) {
 
 		requestPartialUpdateDog(newDog, dogToEdit.id).then((newDogEdited) => {
 			console.log(newDogEdited);
-			newDogEdited ? replaceDog(dogCard, newDogEdited) : refreshList();
+
+			if (newDogEdited)
+				throw new Error("Error al editar el perro en la base de datos");
+
+			replaceDog(dogCard, newDogEdited);
+			console.log("Dog edited successfully");
 			newDog.restart();
 			dogForm.reset();
 			closeModal();
@@ -152,11 +169,12 @@ function validateInput(input) {
 
 function areDifferent(dog1, dog2) {
 	return (
-		dog1.img !== dog2.img ||
 		dog1.name !== dog2.name ||
+		dog1.breed !== dog2.breed ||
 		dog1.phone !== dog2.phone ||
 		dog1.mail !== dog2.mail ||
 		dog1.country !== dog2.country ||
+		dog1.img !== dog2.img ||
 		dog1.description !== dog2.description
 	);
 }
