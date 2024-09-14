@@ -6,8 +6,13 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+}
 
-	span {
-		font-size: theme.$fs-xs;
-	}
+.add-btn {
+	background-color: transparent;
+	border: none;
+
+	font-size: theme.$fs-xs;
+	font-weight: theme.$fw-bold;
+	cursor: pointer;
 }
